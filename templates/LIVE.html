@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Equity Explorer</title>
+    <style>
+        .sidebar {
+     height: 100%;
+     width: 0;
+     position: fixed;
+     z-index: 1;
+     top: 0;
+     left: 0;
+     background-color: #111;
+     overflow-x: hidden;
+     transition: 0.5s;
+     padding-top: 50px;
+   }
+
+   .sidebar a {
+     padding: 8px 8px 8px 32px;
+     text-decoration: none;
+     font-size: 25px;
+     color: #818181;
+     display: block;
+     transition: 0.3s;
+   }
+
+   .sidebar a:hover {
+     color: #f1f1f1;
+   }
+
+   .sidebar .closebtn {
+     position: absolute;
+     top: 0;
+     right: 25px;
+     font-size: 36px;
+     margin-left: 50px;
+   }
+
+   .openbtn {
+     font-size: 20px;
+     cursor: pointer;
+     background-color: #111;
+     color: white;
+     padding: 8px 15px;
+     border: none;
+
+   }
+
+   .openbtn:hover {
+     background-color: #444;
+   }
+
+   #main {
+     transition: margin-left .5s;
+     padding: 16px;
+   }
+
+   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+   @media screen and (max-height: 450px) {
+     .sidebar {
+       padding-top: 15px;
+     }
+
+     .sidebar a {
+       font-size: 18px;
+     }
+   }
+   #info-para{
+       padding: 0 50px;
+   }
+   h4{
+       padding:10px;
+   }
+   #step{
+       border-radius: 5px;
+   }
+   #down{
+     margin: auto;
+     width: 20px;
+     display: block;
+     padding: 0 0 5px 0;
+   }
+   #features-img{
+     height: 150px;
+     margin: 20px;
+   }
+
+
+
+      /*slider*/
+      .slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 50%; /* Full-width */
+  height: 10px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border-radius: 500px;
+}
+.yslider, .ryslider, .rorslider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 90%; /* Full-width */
+  height: 10px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border-radius: 500px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+.slider::-webkit-slider-thumb, .yslider::-webkit-slider-thumb, .ryslider::-webkit-slider-thumb, .rorslider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  /*background: url('https://www.prepressure.com/images/sign-percent.png');*/
+  background-color: black;
+  cursor: pointer;
+  border-radius: 500px;
+}
+
+.slider::-moz-range-thumb, .yslider::-moz-range-thumb, .ryslider::-moz-range-thumb, .rorslider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  /*background: url('https://www.prepressure.com/images/sign-percent.png');*/
+  background-color: black;
+  border-radius: 10000px;
+  cursor: pointer;
+}
+
+        /* Style the tab */
+        .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+        background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+        background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border-top: none;
+        }
+    </style>
+  </head>
+  <body>
+
+    <header class="navbar navbar-expand  navbar-dark sticky-top bg-dark flex-md-nowrap p-3 shadow">
+        <button class="openbtn" onclick="openNav()">☰</button>
+
+       <a class="navbar-brand col-md-3 col-lg-2 me-0 px-4" href="explorer/">EQUITY EXPLORER</a>
+       <div id="mySidebar" class="sidebar"><br>
+         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-4" href="explorer/">EQUITY EXPLORER</a>
+         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+         <nav id="sidebarMenu">
+           <div class="position-sticky pt-3">
+             <ul class="nav flex-column">
+               <li class="nav-item">
+                 <a class="nav-link active" aria-current="page" href="explorer/">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-home">
+                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                   </svg>
+                   Dashboard
+                 </a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="portfolio">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                     class="bi bi-briefcase-fill" viewBox="0 0 16 16">
+                     <path
+                       d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
+                     <path
+                       d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
+                   </svg>
+                   Portfolio
+                 </a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                     class="bi bi-bookmark-plus-fill" viewBox="0 0 16 16">
+                     <path fill-rule="evenodd"
+                       d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z" />
+                   </svg>
+                   Watchlist
+                 </a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="about">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                     class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
+                     <path
+                       d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755z" />
+                   </svg>
+                   About
+                 </a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#" aria-disabled="true" data-bs-toggle="modal"
+                   data-bs-target="#staticBackdrop2">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                     class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                     <path fill-rule="evenodd"
+                       d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+                     <path fill-rule="evenodd"
+                       d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                   </svg>
+                   Login
+                 </a>
+               </li>
+
+               </li>
+             </ul>
+
+
+           </div>
+         </nav>
+
+       </div>
+
+
+
+       <script>
+         function openNav() {
+           document.getElementById("mySidebar").style.width = "250px";
+           document.getElementById("main").style.marginLeft = "250px";
+         }
+
+         function closeNav() {
+           document.getElementById("mySidebar").style.width = "0";
+           document.getElementById("main").style.marginLeft = "0";
+         }
+       </script>
+    </header><br>
+
+
+    <div class="container-fluid">
+        <h3>Company Name Here</h3>
+        <button type="button" class="btn btn-outline-primary">Add to Watchlist</button>
+        <br>
+        <p>live data here</p>
+    </div>
+    <hr>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <h4><b>People Also Watch</b></h4>
+            </div>
+            <div class="col-10">
+                <div class="tab">
+                    <button class="tablinks" onclick="opentabbbb(event, 'Overview')" id="defaultOpen"><b> Overview</b></button>
+                    <button class="tablinks" onclick="opentabbbb(event, 'Conversations')"><b> Conversations</b></button>
+                    <button class="tablinks" onclick="opentabbbb(event, 'Statistics')"><b> Statistics</b></button>
+                    <button class="tablinks" onclick="opentabbbb(event, 'Financials')"><b> Financials</b></button>
+                    <button class="tablinks" onclick="opentabbbb(event, 'Secretorial')"><b> Secretorial Comparison</b></button>
+                    <button class="tablinks" onclick="opentabbbb(event, 'Holdings')"><b> Holdings</b></button>
+                    <button class="tablinks" onclick="opentabbbb(event, 'News')"><b> News</b></button>
+                    <button class="tablinks" onclick="opentabbbb(event, 'Profile')"><b> Profile</b></button>
+                </div>
+
+                  <div id="Overview" class="tabcontent">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card" style="width: 23rem;">
+                                <img src="IMAGES/1200px-Reliance_Industries_Logo.svg.png" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Reliance Industries Ltd</h5>
+                                    <p class="card-text">RELIANCE
+                                    <H5>2109.00 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16" style="color: crimson;">
+                                            <path
+                                                d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                                        </svg>
+                                        <H6>14.15 (4.25%)</H6>
+                                    </H5>
+                                    </p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item list-group-item-action">Sector- Crude Oil</li>
+                                    <li class="list-group-item list-group-item-action">Industry- Refineries</li>
+                                    <li class="list-group-item list-group-item-action">LARGE CAP- With a market cap
+                                        of ₹14,43,613 cr, stock is ranked 1</li>
+                                </ul>
+                                <div class="card-body">
+                                    <h5>Company Profile</h5>
+                                    <span class="text-muted">Reliance Industries Limited is an Indian multinational
+                                        conglomerate company headquartered in Mumbai, India. Reliance owns
+                                        businesses across India engaged in energy, petrochemicals, textiles, natural
+                                        resources, retail, and telecommunications.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+
+                            <h3>Financial Indicators</h3><br>
+                            <table class="table table-borderless">
+                                <thread>
+                                    <tr>
+                                        <th scope="col">EPS</th>
+                                        <th scope="col">PB ratio</th>
+                                        <th scope="col">PE ratio</th>
+                                    </tr>
+                                </thread>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">25</th>
+                                        <th scope="row">52</th>
+                                        <th scope="row">23</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr>
+                            <table class="table table-borderless">
+                                <thread>
+                                    <tr>
+                                        <th scope="col">Dividend Yield</th>
+                                        <th scope="col">Sector-PE</th>
+                                        <th scope="col">Sector-PB</th>
+                                    </tr>
+                                </thread>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">21</th>
+                                        <th scope="row">52</th>
+                                        <th scope="row">23</th>
+                                    </tr>
+                                </tbody>
+                            </table><br>
+                            <h2>Tracking Market Capital(in Cr.)</h2>
+                            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="400" height="400"
+                                style="display: block; height: 285px; width: 675px;"></canvas>
+                            <h2>Return on Investment</h2>
+                            <h6><span class="text-muted">Return on Investment (ROI) is a performance measure used to
+                                    evaluate the efficiency or profitability of an investment or compare the
+                                    efficiency of a number of different investments. ... To calculate ROI, the
+                                    benefit (or return) of an investment is divided by the cost of the
+                                    investment.</span></h6>
+                            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="400" height="400"
+                                style="display: block; height: 285px; width: 675px;"></canvas>
+
+                        </div>
+                    </div>
+                  <div id="Conversations" class="tabcontent">
+                    <p>conv</p>
+
+
+                </div>
+                  </div>
+                  <div id="Statistics" class="tabcontent">
+                    <h3>o</h3>
+                    <p>Lorem ipsum</p>
+                  </div>
+                  <div id="Financials" class="tabcontent">
+                    <h3>dfh</h3>
+                    <p>Lorem ipsum</p>
+                  </div>
+                  <div id="Secretorial" class="tabcontent">
+                    <h3>Secretorial Comparison</h3>
+                    <p>xyz</p>
+                  </div>
+                  <div id="Holdings" class="tabcontent">
+                    <h3>hold</h3>
+                    <p>Lorem ipsum</p>
+                  </div>
+                  <div id="News" class="tabcontent">
+                    <h3>news</h3>
+                    <p>Lorem ipsum</p>
+                  </div>
+                  <div id="Profile" class="tabcontent">
+                    <h3>Profile</h3>
+                    <p>Name of the company</p>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function opentabbbb(evt, tabsName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(tabsName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
