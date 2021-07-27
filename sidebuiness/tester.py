@@ -37,7 +37,7 @@ sql = "INSERT INTO {} (symbol,{}) VALUES (%s{})"
 sql_company = "INSERT INTO company (symbol,company_name,logo,description,description_wiki) VALUES (%s,%s,%s,%s,%s)"
 vals_company = []
 ace = ',%s'
-file = (open(r"C:\Users\kshit\Desktop\edge.txt", 'r').read().split('\n'))
+file = (open(r"C:\Users\Shrutika\Downloads\djangoProject\sidebuiness\edge.txt", 'r').read().split('\n'))
 file.pop(-1)
 print(len(file))
 file = [file[3]]

@@ -264,7 +264,7 @@
       </script>
             <form class="d-flex" method="POST" name="form" action="{% url 'search' %}">
         {% csrf_token %}
-                <input name="tags"  type="text" placeholder="Search" aria-label="Search" id="tags" size="200">
+                <input name="tags"  type="text" placeholder="Search" aria-label="Search" id="tags" size="100">
               <button class="btn btn-dark"  type="submit">Search</button>
         </form>
 
@@ -294,13 +294,13 @@ css">
     });
   } );
   </script>
-
+<br><br><br>
         <div class="container-fluid">
             <div class="row">
 
                 <main class="col-md-9 ms-sm-auto col-lg-12 px-md-5">
                     <div class="row g-0 bg-light position-relative">
-                        <div class="col-md-6 mb-md-0 p-md-4">
+                        <div class="col-md-6 mb-md-0 p-md-4"><br>
                             <img src="{% static 'equity/36-512.png' %}"  style="width: 400px; height: 350px;">
                         </div>
                         <div class="col-md-6 p-4 ps-md-0">

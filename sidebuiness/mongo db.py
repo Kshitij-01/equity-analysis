@@ -13,7 +13,7 @@ dblist = myclient.list_database_names()
 if "mydatabase" in dblist:
     print("The database exists.")
 
-df = pd.read_csv(r'C:\Users\kshit\PycharmProjects\djangoProject1\equity\static\excels\bse_ticker.csv')
+df = pd.read_csv(r'C:\Users\Shrutika\Downloads\djangoProject\equity\static\excels\bse_ticker.csv')
 dictt = {}
 for index, row in df.iterrows():
     dictt[str(row['name'].split("EOD")[0].replace('-$', '').replace('.', '').strip().upper())] = str(row['code'])

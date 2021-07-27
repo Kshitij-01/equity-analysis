@@ -18,15 +18,14 @@ for f in file:
                             '_').replace('/',
                                          '').replace(
                             '(', '').replace(')', '').replace('-', '_').replace('%', '').replace("'", "").replace('9_',
-                                                                                                                  '').strip(
-                            '_').replace('__', '_')))
+                                                                                                                  '').strip('_').replace('__','_')))
                     for x in p:
                         print(ring.format(
                             x.strip().strip().replace('&', 'and').replace('.', '').replace(' ', '_').strip('_').replace(
                                 '/',
                                 '').replace(
                                 '(', '').replace(')', '').replace('-', '_').replace('%', '').replace("'", "").replace(
-                                '9_', '').strip('_').replace('__', '_')))
+                                '9_', '').strip('_').replace('__','_')))
                     print('')
     print(' now stock edge')
     for j in jj[:-3]:
@@ -34,10 +33,9 @@ for f in file:
             for t, y in j.items():
                 print("class {}_stockedge(models.Model):".format(
                     y.strip().replace('&', 'and').replace('.', '').replace(' ', '_').replace('/',
-                                                                                             '').replace(
+                                                                                                        '').replace(
                         '(', '').replace(')', '').replace('-', '_').replace('%', '').replace("'", "").replace('9_',
-                                                                                                              '').strip(
-                        '_').replace('__', '_')))
+                                                                                                              '').strip('_').replace('__','_')))
                 break
             li = []
             for t, y in j.items():
@@ -49,8 +47,7 @@ for f in file:
                     x.strip().replace('&', 'and').replace('.', '').replace(' ', '_').strip('_').replace('/',
                                                                                                         '').replace(
                         '(', '').replace(')', '').replace('-', '_').replace("'", "").replace('%', '').replace('9_',
-                                                                                                              '').strip(
-                        '_').replace('__', '_')))
+                                                                                                              '').strip('_').replace('__','_')))
             print('')
     for f, g in jj[-3].items():
         print(f, g)

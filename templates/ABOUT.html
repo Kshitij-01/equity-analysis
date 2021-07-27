@@ -172,7 +172,7 @@
 
     <form class="d-flex" method="POST" name="form" action="{% url 'search' %}">
         {% csrf_token %}
-                <input name="tags"  type="text" placeholder="Search" aria-label="Search" id="tags" size="213">
+                <input name="tags"  type="text" placeholder="Search" aria-label="Search" id="tags" size="100">
               <button class="btn btn-dark"  type="submit">Submit</button>
         </form>
 
@@ -194,42 +194,36 @@ css">
     });
   } );
   </script>
-    <div class="container-sm">
+    <div class="container-sm"><br>
         <h2>About</h2>
         <hr>
-        <p>EquityExplorer provide a platform where information, analysis, evaluation for stock, equity, commodity market
-            and
-            various sectors can be done .Expert analysis and prediction feature allows to review the experts.Website
+        <p class="justify-text">EquityExplorer provides a platform where information, analysis, evaluation for stock, equity, commodity market
+            and various sectors can be done. Expert analysis and prediction feature allows to review the experts.Website
             help individuals gain knowledge about various companies, economic news and financials etc.
             As lot of people started investing in stock market during the pandemic period,many people feel the data
             available on the stocks and the market is in complex form or paid. Here we can help the people with the
-            restrictions.<br>
+            restrictions.<br><br>
             The objective of this website is as follows:<br>
             1. To study the current data analyzing techniques and identify their limitations that may help to suggest a
             hybrid approach which may overcomes the drawbacks existing methods.<br>
-            2. To simplify the data of the companies using graphs and charts.this makes new investers to understand more
+            2. To simplify the data of the companies using graphs and charts.this makes new investors to understand more
             easily the stock performance and to make their decisions.<br>
             3. To give the data free of cost and to recommend the stocks by studying the past performances of the stock.<br>
 
         </p>
-    
-    <div style=" margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 600px;
-    margin-left: 8px;">
+    </div>
+    <div class="container-sm">
         <h2>Contact Us</h2>
-        <p><i class="material-icons" style="font-size:20px;color:grey">location_on</i>301,2nd floor,Imperial
-            Building,Harrington
-            Rd,Cuffe Parade Mumbai-400121</p>
         <hr>
-        </div>
+        <p><i class="material-icons" style="font-size:20px;color:grey">location_on</i> 301, 2nd floor, Imperial
+            Building, Harrington
+            Rd, Cuff Parade, Mumbai-400121</p>
         
-        <i class="material-icons" style="font-size:20px;color:grey">email</i>Email us at <a style="text-decoration:none"
+        <i class="material-icons" style="font-size:20px;color:grey">email</i> Email us at <a style="text-decoration:none"
             href="mailto:info@euityexplorer.com">info@euityexplorer.com</a>
-        <hr>
-    </div></div>
+    </div>
     <br><br>
-    <footer class="bd-footer p-3 p-md-5 mt-5 bg-dark text-center fixed-bottom">
+    <footer class="bd-footer p-3 p-md-5 mt-5 bg-dark text-center">
         <div class="container">
             <h4 style="color: aliceblue;">EquityExplorer</h4>
             <ul class="bd-footer-links ps-0 mb-3">
@@ -238,6 +232,7 @@ css">
                 <li class="d-inline-block ms-3"><a style="text-decoration:none" href="#">watchlist</a></li>
                 <li class="d-inline-block ms-3"><a style="text-decoration:none" href="about">About</a></li>
             </ul>
+            <br><br><br>
             <p style="color: aliceblue">Copyright &copy;&nbsp;EquityExplorer2021.</p>
 
         </div>

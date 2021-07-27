@@ -31,7 +31,7 @@ class edgescrapper:
             extract_format=wikipediaapi.ExtractFormat.HTML
         )
 
-        df = pd.read_csv(r"C:\Users\kshit\PycharmProjects\djangoProject1\equity\static\excels\XNSE_tickers.csv")
+        df = pd.read_csv(r"C:\Users\Shrutika\Downloads\djangoProject\equity\static\excels\XNSE_tickers.csv")
         cn = df['issuer_name'].map(lambda p: ' '.join(p.split()[:-1])).to_numpy()
         # f = open(r'C:\Users\kshit\PycharmProjects\djangoProject1\equity\static\excels\XNSE_tickers.csv')
         options = webdriver.ChromeOptions()
@@ -50,7 +50,7 @@ class edgescrapper:
         self.driver.execute_script(
             'window.open("https://www.tickertape.in/")')
         self.driver.switch_to.window(self.driver.window_handles[0])
-        with open(r"C:\Users\kshit\Desktop\edge.txt", 'r') as f:
+        with open(r"C:\Users\Shrutika\Downloads\djangoProject\sidebuiness\edge.txt", 'r') as f:
             try:
                 load = json.loads(f.read().split('\n')[-2])
                 cp = load[0]
