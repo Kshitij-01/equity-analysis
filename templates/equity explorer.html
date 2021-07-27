@@ -1,0 +1,533 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Equity explorer</title>
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Hugo 0.80.0">
+        <title>Dashboard Template · Bootstrap v5.0</title>
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+
+
+
+        <!-- Bootstrap core CSS -->
+        <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+        <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+        <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+        <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+        <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+        <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+        <meta name="theme-color" content="#7952b3">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }
+        </style>
+
+
+        <!-- Custom styles for this template -->
+        <link href="dashboard.css" rel="stylesheet">
+        <style type="text/css">
+            /* Chart.js */
+            @keyframes chartjs-render-animation {
+                from {
+                    opacity: .99
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            .chartjs-render-monitor {
+                animation: chartjs-render-animation 1ms
+            }
+
+            .chartjs-size-monitor,
+            .chartjs-size-monitor-expand,
+            .chartjs-size-monitor-shrink {
+                position: absolute;
+                direction: ltr;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                overflow: hidden;
+                pointer-events: none;
+                visibility: hidden;
+                z-index: -1
+            }
+
+            .chartjs-size-monitor-expand>div {
+                position: absolute;
+                width: 1000000px;
+                height: 1000000px;
+                left: 0;
+                top: 0
+            }
+
+            .chartjs-size-monitor-shrink>div {
+                position: absolute;
+                width: 200%;
+                height: 200%;
+                left: 0;
+                top: 0
+            }
+              .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 50px;
+    }
+
+    .sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+
+    }
+
+    .openbtn:hover {
+      background-color: #444;
+    }
+
+    #main {
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+
+    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+    @media screen and (max-height: 450px) {
+      .sidebar {
+        padding-top: 15px;
+      }
+
+      .sidebar a {
+        font-size: 18px;
+      }
+    }
+        </style>
+    </head>
+</head>
+
+<body>
+    <body>
+
+    <header class="navbar navbar-expand  navbar-dark sticky-top bg-dark flex-md-nowrap p-3 shadow">
+        <button class="openbtn" onclick="openNav()">☰</button>
+
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-4" href="/explorer/">EQUITY EXPLORER</a>
+      <div id="mySidebar" class="sidebar"><br>
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-4" href="/explorer/">EQUITY EXPLORER</a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">☰</a>
+        <nav id="sidebarMenu">
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/explorer/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-home">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                  Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/portfolio">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-briefcase-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
+                    <path
+                      d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
+                  </svg>
+                  Portfolio
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-bookmark-plus-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z" />
+                  </svg>
+                  Watchlist
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755z" />
+                  </svg>
+                  About
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="ABOUT.html" aria-disabled="true" data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+                    <path fill-rule="evenodd"
+                      d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                  </svg>
+                  Login
+                </a>
+              </li>
+
+              </li>
+            </ul>
+
+
+          </div>
+        </nav>
+
+      </div>
+
+
+
+      <script>
+        function openNav() {
+          document.getElementById("mySidebar").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+          document.getElementById("main").style.marginLeft = "0";
+        }
+      </script>
+        <form class="d-flex" method="POST" name="form" action="{% url 'search' %}">
+        {% csrf_token %}
+                <input name="tags"  type="text" placeholder="Search" aria-label="Search" id="tags" size="100">
+              <button class="btn btn-dark"  type="submit">Search</button>
+        </form>
+
+
+
+        </header>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.
+css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+
+  $( function() {
+      var tags = {{ comps|safe }} ;
+    $( "#tags" ).autocomplete({
+      source: tags
+
+    });
+  } );
+  </script>
+        
+        <div class="container-fluid">
+          <div class="row">
+
+        
+            <main class="col-md-9 ms-sm-auto col-lg-12 px-md-5"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+              <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Index</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                  <div class="btn-group me-2">
+                    <a href="#" button type="button" id="nifty" class="btn btn-sm btn-outline-secondary">Nifty</button></a>
+                    <a href="#" button type="button" id="sen" class="btn btn-sm btn-outline-secondary">Sensex</button></a>
+                  </div>
+
+                </div>
+              </div>
+        
+
+                <div id="myDiv" >
+    <script>
+document.getElementById("sen").addEventListener("click", change);
+document.getElementById("nifty").addEventListener("click", nifty);
+
+
+   // var xx = ["09-03-2020", "11-03-2020", "12-03-2020", "13-03-2020", "16-03-2020", "17-03-2020", "18-03-2020", "19-03-2020", "20-03-2020", "23-03-2020", "24-03-2020", "25-03-2020", "26-03-2020", "27-03-2020", "30-03-2020", "31-03-2020", "01-04-2020", "03-04-2020", "07-04-2020", "08-04-2020", "09-04-2020", "13-04-2020", "15-04-2020", "16-04-2020", "17-04-2020", "20-04-2020", "21-04-2020", "22-04-2020", "23-04-2020", "24-04-2020", "27-04-2020", "28-04-2020", "29-04-2020", "30-04-2020", "04-05-2020", "05-05-2020", "06-05-2020", "07-05-2020", "08-05-2020", "11-05-2020", "12-05-2020", "13-05-2020", "14-05-2020", "15-05-2020", "18-05-2020", "19-05-2020", "20-05-2020", "21-05-2020", "22-05-2020", "26-05-2020", "27-05-2020", "28-05-2020", "29-05-2020", "01-06-2020", "02-06-2020", "03-06-2020", "04-06-2020", "05-06-2020", "08-06-2020", "09-06-2020", "10-06-2020", "11-06-2020", "12-06-2020", "15-06-2020", "16-06-2020", "17-06-2020", "18-06-2020", "19-06-2020", "22-06-2020", "23-06-2020", "24-06-2020", "25-06-2020", "26-06-2020", "29-06-2020", "30-06-2020", "01-07-2020", "02-07-2020", "03-07-2020", "06-07-2020", "07-07-2020", "08-07-2020", "09-07-2020", "10-07-2020", "13-07-2020", "14-07-2020", "15-07-2020", "16-07-2020", "17-07-2020", "20-07-2020", "21-07-2020", "22-07-2020", "23-07-2020", "24-07-2020", "27-07-2020", "28-07-2020", "29-07-2020", "30-07-2020", "31-07-2020", "03-08-2020", "04-08-2020", "05-08-2020", "06-08-2020", "07-08-2020", "10-08-2020", "11-08-2020", "12-08-2020", "13-08-2020", "14-08-2020", "17-08-2020", "18-08-2020", "19-08-2020", "20-08-2020", "21-08-2020", "24-08-2020", "25-08-2020", "26-08-2020", "27-08-2020", "28-08-2020", "31-08-2020", "01-09-2020", "02-09-2020", "03-09-2020", "04-09-2020", "07-09-2020", "08-09-2020", "09-09-2020", "10-09-2020", "11-09-2020", "14-09-2020", "15-09-2020", "16-09-2020", "17-09-2020", "18-09-2020", "21-09-2020", "22-09-2020", "23-09-2020", "24-09-2020", "25-09-2020", "28-09-2020", "29-09-2020", "30-09-2020", "01-10-2020", "05-10-2020", "06-10-2020", "07-10-2020", "08-10-2020", "09-10-2020", "12-10-2020", "13-10-2020", "14-10-2020", "15-10-2020", "16-10-2020", "19-10-2020", "20-10-2020", "21-10-2020", "22-10-2020", "23-10-2020", "26-10-2020", "27-10-2020", "28-10-2020", "29-10-2020", "30-10-2020", "02-11-2020", "03-11-2020", "04-11-2020", "05-11-2020", "06-11-2020", "09-11-2020", "10-11-2020", "11-11-2020", "12-11-2020", "13-11-2020", "17-11-2020", "18-11-2020", "19-11-2020", "20-11-2020", "23-11-2020", "24-11-2020", "25-11-2020", "26-11-2020", "27-11-2020", "01-12-2020", "02-12-2020", "03-12-2020", "04-12-2020", "07-12-2020", "08-12-2020", "09-12-2020", "10-12-2020", "11-12-2020", "14-12-2020", "15-12-2020", "16-12-2020", "17-12-2020", "18-12-2020", "21-12-2020", "22-12-2020", "23-12-2020", "24-12-2020", "28-12-2020", "29-12-2020", "30-12-2020", "31-12-2020", "04-01-2021", "05-01-2021", "06-01-2021", "07-01-2021", "08-01-2021", "11-01-2021", "12-01-2021", "13-01-2021", "14-01-2021", "15-01-2021", "18-01-2021", "19-01-2021", "20-01-2021", "21-01-2021", "22-01-2021", "25-01-2021", "27-01-2021", "28-01-2021", "29-01-2021", "01-02-2021", "02-02-2021", "03-02-2021", "04-02-2021", "05-02-2021", "08-02-2021", "09-02-2021", "10-02-2021", "11-02-2021", "12-02-2021", "15-02-2021", "16-02-2021", "17-02-2021", "18-02-2021", "19-02-2021", "22-02-2021", "23-02-2021", "24-02-2021", "25-02-2021", "26-02-2021", "01-03-2021", "02-03-2021", "03-03-2021", "04-03-2021", "05-03-2021"];
+    var xx = JSON.parse('{{ x }}')
+   var xxs = JSON.parse('{{ xs }}')
+    var x = []; var xs = [];
+xx.forEach((myFunction));
+xxs.forEach(myFunction1);
+function myFunction1(value) {
+  xs.push(new Date(value))
+}
+function myFunction(value) {
+  x.push(new Date(value))
+}
+var trace1 = {
+        x: x,
+        y: {{ y }},
+        mode: 'lines'
+    };
+
+    var data = [trace1];
+    var layout = {
+        title: 'Nifty',
+        height: 500,
+         xaxis: {
+    autorange: true,
+    title: 'Date',
+	 rangeselector: {
+        x: 0,
+        y: 1.2,
+        xanchor: 'left',
+        font: {size:8},
+        buttons: [{
+            step: 'month',
+            stepmode: 'backward',
+            count: 1,
+            label: '1 month'
+        }, {
+            step: 'month',
+            stepmode: 'backward',
+            count: 6,
+            label: '6 months'
+        }, {
+            step: 'year',
+            stepmode: 'backward',
+            count: 1,
+            label: 'Year'
+        },{
+            step: 'year',
+            stepmode: 'backward',
+            count: 3,
+            label: '3 Years'
+        },{
+            step: 'year',
+            stepmode: 'backward',
+            count: 5,
+            label: '5 Years'
+        }, {
+            step: 'all',
+            label: 'All dates'
+        }],rangeslider: {}
+      }
+  },
+  yaxis: {
+    autorange:true,
+
+  }
+};
+
+    Plotly.newPlot('myDiv', data, layout,{scrollZoom: true});
+//console.log(x[0],xs[0],x[x.length-1],xs[xs.length-1])
+function change(){
+
+Plotly.animate('myDiv', {
+    data: [{y: {{ ys }}, x:xs}],
+    traces: [0],
+    layout: {
+        title:'Sensex',
+      xaxis: {range :[xs[0],xs[xs.length-1]]},
+      yaxis: {range: [0, 52000]}
+    }
+  }, {
+    transition: {
+      duration: 1000,
+      easing: 'cubic-in-out'
+    },
+    frame: {
+      duration: 1000
+    }
+  })
+}
+
+function nifty()
+{
+    Plotly.animate('myDiv', {
+    data: [{y: {{ y }}, x:x}],
+    traces: [0],
+    layout: {
+        title:'Nifty',
+      xaxis: {range :[x[0],x[x.length-1]]},
+      yaxis: {range: [2000, 16000]}
+    }
+  }, {
+    transition: {
+      duration: 1000,
+      easing: 'cubic-in-out'
+    },
+    frame: {
+      duration: 1000
+    }
+  });
+}
+                </script>
+</div>
+
+        <br><br><br>
+              <h2>Section title</h2>
+
+              <div class="table-responsive">
+                <table class="table table-hover table-md">
+                  <thead>
+                    <tr>
+                      <th>Sr.no</th>
+                      <th>company </th>
+                      <th>Price</th>
+                      <th>High</th>
+                      <th>Low</th>
+                      <th>Market cap(in Cr.)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1,001</td>
+                      <td>company_name</td>
+                     <td>data</td>
+                      <td>placeholder</td>
+                      <td>text</td>
+                      <td>2500</td>
+                    </tr>
+                  <tr>
+                      <td>1,001</td>
+                      <td>company_name</td>
+                     <td>data</td>
+                      <td>placeholder</td>
+                      <td>text</td>
+                      <td>2500</td>
+                    </tr>
+                  <tr>
+                      <td>1,001</td>
+                      <td>company_name</td>
+                     <td>data</td>
+                      <td>placeholder</td>
+                      <td>text</td>
+                      <td>2500</td>
+                    </tr>
+                  <tr>
+                      <td>1,001</td>
+                      <td>company_name</td>
+                     <td>data</td>
+                      <td>placeholder</td>
+                      <td>text</td>
+                      <td>2500</td>
+                    </tr>
+                  <tr>
+                      <td>1,001</td>
+                      <td>company_name</td>
+                     <td>data</td>
+                      <td>placeholder</td>
+                      <td>text</td>
+                      <td>2500</td>
+                    </tr>
+                  <tr>
+                      <td>1,001</td>
+                      <td>company_name</td>
+                     <td>data</td>
+                      <td>placeholder</td>
+                      <td>text</td>
+                      <td>2500</td>
+                    </tr>
+                  <tr>
+                      <td>1,001</td>
+                      <td>company_name</td>
+                     <td>data</td>
+                      <td>placeholder</td>
+                      <td>text</td>
+                      <td>2500</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+
+
+            </main>
+          </div>
+        </div>
+        
+        
+            <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        
+              <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+          
+        
+        
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+
+
+</body>
+
+</html>
