@@ -57,7 +57,7 @@
   
   </style>
 
-<!-- Modal -->
+<!-- Modal -->/login
   <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="STATIC" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -85,7 +85,7 @@
         </div>
 
 
-        <class="text-muted">&nbsp  Don't have a EQUITY EXPLORER account?</class><a href="#" data-bs-toggle="modal"
+        <class="text-muted">&nbsp  Don't have a EUITY EXPLORER account?</class><a href="#" data-bs-toggle="modal"
             data-bs-target="#staticBackdrop2" class="active">Signup</a>
           <div class="MODAL-FOOTER">
             <br>
@@ -94,7 +94,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal -->/signup
   <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="absolute" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -167,7 +167,7 @@
             <div class="col-12">
               <button class="btn btn-dark" type="submit">Submit</button>
             </div>
-            <class="text-muted"> Already have a EQUITY EXPLORER account? </class><a href="#" data-bs-toggle="modal"
+            <class="text-muted"> Already have a EUITY EXPLORER account. </class><a href="#" data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop1" class="active" data-bs-dismiss="modal">Login</a>
           </form>
 
@@ -215,7 +215,7 @@ if (a === true) {
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-md text-light fixed-top" style="background-color: rgba(0,0,0,0.6);">
+    <nav class="navbar navbar-expand-md navbar text-light fixed-top -light">
       <div class="container-fluid">
         <a class="navbar-brand" href="explorer/">
           <p style="color: rgb(255, 255, 255);"><b>EQUITY EXPLORER</b></p>
@@ -247,11 +247,11 @@ if (a === true) {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="/news" tabindex="-1" aria-disabled="true">News</a>
+              <a class="nav-link disabled" href="/news" tabindex="-1" aria-disabled="true">news</a>
             </li>
             <div class="btn-group btn-sm">
-              <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" class="btn btn-dark" id="login">Login</a>
-              <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" class="btn btn-dark">Signup</a>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" class="btn btn-outline-dark active" id="login">Login</a>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" class="btn btn-outline-dark active">Signup</a>
 
             </div>
           </ul>
@@ -377,12 +377,12 @@ if (a === true) {
         <hr class="featurette-divider">
 
         <div class="row featurette" style="color: rgb(245, 244, 240);">
-          <div class="col-md-6 order-md-2 ">
-            <h2 class="featurette-heading text-center">Portfolio <span class="text-muted ">Create your own dimension</span>
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Portfolio <span class="text-muted">Create your own dimension</span>
             </h2>
-            <p class="lead text-center"> A brief description of your beliefs about yourself and the industry.</p>
+            <p class="lead"> A brief description of your beliefs about yourself and the industry.</p>
             <br><br><br>
-            <div class="btn-group-vertical justify-content-center" class="d-grid gap-1 col-7 mx-auto" role="group"
+            <div class="btn-group-vertical" class="d-grid gap-1 col-7 mx-auto" role="group"
               aria-label="Basic outlined example">
               <button class=" btn btn-outline-dark" style="color: rgb(255, 255, 255);" type="button">
                 <h5>Start tracking your investment in stocks
@@ -398,10 +398,10 @@ if (a === true) {
                  type="button">create a portfolio</button></a>
             </div>
           </div>
-          <div class="col-md-6 order-md-1">
+          <div class="col-md-5 order-md-1">
 
             <img src="{% static 'equity/portfolio.PNG' %}" width="500"
-              height="370" >
+              height="500" >
 
 
           </div>
@@ -411,8 +411,8 @@ if (a === true) {
 
         <div class="row featurette" style="color: rgb(245, 244, 240);">
           <div class="col-md-7">
-            <h2 class="featurette-heading text-center">MarketWatch <span class="text-muted">See for yourself</span></h2>
-            <p class="lead text-center">securities being monitored for potential trading or investing opportunities</p>
+            <h2 class="featurette-heading">MarketWatch<span class="text-muted">See for yourself.</span></h2>
+            <p class="lead">securities being monitored for potential trading or investing opportunities</p>
             <br><br><br>
             <div class="btn-group-vertical" class="d-grid gap-1 col-5 mx-auto" role="group"
               aria-label="Basic outlined example">

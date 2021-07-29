@@ -262,9 +262,9 @@
           document.getElementById("main").style.marginLeft = "0";
         }
       </script>
-        <form class="d-flex" method="POST" name="form" action="{% url 'search' %}">
+    <form class="d-flex" method="POST" name="form" action="{% url 'search' %}">
         {% csrf_token %}
-                <input name="tags"  type="text" placeholder="Search" aria-label="Search" id="tags" size="100">
+                <input name="tags"  type="text" placeholder="Search" aria-label="Search" id="tags" size="200">
               <button class="btn btn-dark"  type="submit">Search</button>
         </form>
 

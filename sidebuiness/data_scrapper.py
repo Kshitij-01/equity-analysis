@@ -53,7 +53,7 @@ class data:
             extract_format=wikipediaapi.ExtractFormat.HTML
         )
 
-        df = pd.read_excel(r"C:\Users\Shrutika\Downloads\djangoProject\equity\static\excels\MCAP31122020.xlsx")
+        df = pd.read_excel(r"C:\Users\kshit\PycharmProjects\djangoProject1\equity\static\excels\MCAP31122020.xlsx")
         cn = df['Company Name'].to_numpy()
         f = open(r"C:\Users\kshit\Desktop\cdata.txt", 'a')
         options = webdriver.ChromeOptions()

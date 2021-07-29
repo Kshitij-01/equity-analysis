@@ -3,7 +3,7 @@ import pandas as pd
 import mysql.connector
 import re
 
-df = pd.read_excel(r"C:\Users\Shrutika\Downloads\djangoProject\equity\static\excels\MCAP31122020.xlsx")
+df = pd.read_excel(r"C:\Users\kshit\Desktop\PROJECT\MCAP31122020.xlsx")
 # file1 = open(r"C:\Users\kshit\Desktop\logos1.txt","w")
 u = 0
 mydb = mysql.connector.connect(
