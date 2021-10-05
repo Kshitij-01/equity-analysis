@@ -92,7 +92,7 @@
      height: 150px;
      margin: 20px;
    }
-
+   
 
 
       /*slider*/
@@ -159,7 +159,7 @@
         border: 1px solid #ccc;
         background-color: #f1f1f1;
         }
-
+        
         /* Style the buttons inside the tab */
         .tab button {
         background-color: inherit;
@@ -167,26 +167,42 @@
         border: none;
         outline: none;
         cursor: pointer;
-        padding: 14px 16px;
+        padding: 14px 14px;
         transition: 0.3s;
         font-size: 17px;
         }
-
+        
         /* Change background color of buttons on hover */
         .tab button:hover {
         background-color: #ddd;
         }
-
+        
         /* Create an active/current tablink class */
         .tab button.active {
-        background-color: #ccc;
+        background-color: #f1f1f1;
+        border-bottom: 2px solid blue;
+        color: blue;
         }
-
+        
         /* Style the tab content */
         .tabcontent {
         display: none;
         padding: 6px 12px;
         border-top: none;
+        }
+
+        th{
+          font-size: small;
+          font-weight: normal;
+          color: rgb(65, 65, 65);
+        }
+        #profile{
+          height: 50px;
+        }
+        @media (max-width:500px) {
+          #profile{
+            height: 10px;
+          }
         }
     </style>
   </head>
@@ -194,7 +210,7 @@
 
     <header class="navbar navbar-expand  navbar-dark sticky-top bg-dark flex-md-nowrap p-3 shadow">
         <button class="openbtn" onclick="openNav()">☰</button>
-
+ 
        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-4" href="explorer/">EQUITY EXPLORER</a>
        <div id="mySidebar" class="sidebar"><br>
          <a class="navbar-brand col-md-3 col-lg-2 me-0 px-4" href="explorer/">EQUITY EXPLORER</a>
@@ -258,24 +274,24 @@
                    Login
                  </a>
                </li>
-
+ 
                </li>
              </ul>
-
-
+ 
+ 
            </div>
          </nav>
-
+ 
        </div>
-
-
-
+ 
+ 
+ 
        <script>
          function openNav() {
            document.getElementById("mySidebar").style.width = "250px";
            document.getElementById("main").style.marginLeft = "250px";
          }
-
+ 
          function closeNav() {
            document.getElementById("mySidebar").style.width = "0";
            document.getElementById("main").style.marginLeft = "0";
@@ -285,21 +301,26 @@
 
 
     <div class="container-fluid">
-        <h3>Company Name Here</h3>
-        <button type="button" class="btn btn-outline-primary">Add to Watchlist</button>
-        <button type="button" class="btn btn-outline-primary">Add to Portfolio</button>
-        <br>
-        <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="843" height="400"
-                        style="display: block; height: 285px; width: 675px;"></canvas>
+      <div class="row">
+        <div class="col">
+          <h3>Company Name Here</h3>
+          <br>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-outline-primary">☆ Add to Watchlist</button>
+          <button type="button" class="btn btn-outline-primary">☆ Buy Stocks</button>
+        </div>
+      </div>
+      <div class="row">
+        <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="843" height="400" style="display: block; height: 285px; width: 675px;"></canvas>
+      </div>
     </div>
     <hr>
     <br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2">
-                <h4><b>People Also Watch</b></h4>
-            </div>
-            <div class="col-10">
+            <div class="col-lg-9">
+              
                 <div class="tab">
                     <button class="tablinks" onclick="opentabbbb(event, 'Overview')" id="defaultOpen"><b> Overview</b></button>
                     <button class="tablinks" onclick="opentabbbb(event, 'Conversations')"><b> Conversations</b></button>
@@ -310,913 +331,1092 @@
                     <button class="tablinks" onclick="opentabbbb(event, 'News')"><b> News</b></button>
                     <button class="tablinks" onclick="opentabbbb(event, 'Profile')"><b> Profile</b></button>
                 </div>
-
-                  <div id="Overview" class="tabcontent">
+              
+                  <div id="Overview" class="tabcontent"><br>
                     <div class="row">
-                        <div class="col-sm-4">
-                            <div class="card" style="width: 23rem;">
-                                <img src="IMAGES/1200px-Reliance_Industries_Logo.svg.png" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Reliance Industries Ltd</h5>
-                                    <p class="card-text">RELIANCE
-                                    <H5>2109.00 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16" style="color: crimson;">
-                                            <path
-                                                d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
-                                        </svg>
-                                        <H6>14.15 (4.25%)</H6>
-                                    </H5>
-                                    </p>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item list-group-item-action">Sector- Crude Oil</li>
-                                    <li class="list-group-item list-group-item-action">Industry- Refineries</li>
-                                    <li class="list-group-item list-group-item-action">LARGE CAP- With a market cap
-                                        of ₹14,43,613 cr, stock is ranked 1</li>
-                                </ul>
-                                <div class="card-body">
-                                    <h5>Company Profile</h5>
-                                    <span class="text-muted">Reliance Industries Limited is an Indian multinational
-                                        conglomerate company headquartered in Mumbai, India. Reliance owns
-                                        businesses across India engaged in energy, petrochemicals, textiles, natural
-                                        resources, retail, and telecommunications.</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-
-                            <h3>Financial Indicators</h3><br>
-                            <table class="table table-borderless">
-                                <thread>
-                                    <tr>
-                                        <th scope="col">Pre. Close</th>
-                                        <th scope="col">open</th>
-                                        <th scope="col">Bid</th>
-                                        <th scope="col">Ask</th>
-                                    </tr>
-                                </thread>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">25</th>
-                                        <th scope="row">52</th>
-                                        <th scope="row">23</th>
-                                        <th scope="row">23</th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <hr>
-                            <table class="table table-borderless">
-                                <thread>
-                                    <tr>
-                                        <th scope="col">Day's Range</th>
-                                        <th scope="col">52 Week Range</th>
-                                        <th scope="col">volume</th>
-                                        <th scope="col">Avg.Volume</th>
-                                    </tr>
-                                </thread>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">21</th>
-                                        <th scope="row">52</th>
-                                        <th scope="row">23</th>
-                                        <th scope="row">23</th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <hr>
-                            <table class="table table-borderless">
-                                <thread>
-                                    <tr>
-                                        <th scope="col">Market Cap</th>
-                                        <th scope="col">Beta(5Y Monthly)</th>
-                                        <th scope="col">PE Ratio</th>
-                                        <th scope="col">EPS</th>
-                                    </tr>
-                                </thread>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">21</th>
-                                        <th scope="row">52</th>
-                                        <th scope="row">23</th>
-                                        <th scope="row">23</th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <hr>
-                            <table class="table table-borderless">
-                                <thread>
-                                    <tr>
-                                        <th scope="col">Earnings Date</th>
-                                        <th scope="col">Forward Dividend & Yield</th>
-                                        <th scope="col">Ex-Dividend Date</th>
-                                        <th scope="col">1y Target Est</th>
-                                    </tr>
-                                </thread>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">21</th>
-                                        <th scope="row">52</th>
-                                        <th scope="row">23</th>
-                                        <th scope="row">23</th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <br>
-                            <h2>Tracking Market Capital(in Cr.)</h2>
-                            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="400" height="400"
-                                style="display: block; height: 285px; width: 675px;"></canvas>
-                            <h2>Return on Investment</h2>
-                            <h6><span class="text-muted">Return on Investment (ROI) is a performance measure used to
-                                    evaluate the efficiency or profitability of an investment or compare the
-                                    efficiency of a number of different investments. ... To calculate ROI, the
-                                    benefit (or return) of an investment is divided by the cost of the
-                                    investment.</span></h6>
-                            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="400" height="400"
-                                style="display: block; height: 285px; width: 675px;"></canvas>
-
-                        </div>
+                      <div class="col-sm-4">
+                          <div class="card" style="max-width : 100%;">
+                              <img src="IMAGES/1200px-Reliance_Industries_Logo.svg.png" class="card-img-top" />
+                              <div class="card-body">
+                                  <h5 class="card-title">Reliance Industries Ltd</h5>
+                                  <p class="card-text">RELIANCE
+                                  <H5>2109.00 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16" style="color: crimson;">
+                                          <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                                    </svg>
+                                    <H6>14.15 (4.25%)</H6>
+                                  </H5>
+                                  </p>
+                              </div>
+                              <ul class="list-group list-group-flush">
+                                  <li class="list-group-item list-group-item-action">Sector- Crude Oil</li>
+                                  <li class="list-group-item list-group-item-action">Industry- Refineries</li>
+                                  <li class="list-group-item list-group-item-action">LARGE CAP- With a market cap of ₹14,43,613 cr, stock is ranked 1</li>
+                              </ul>
+                              <div class="card-body">
+                                  <h5>Company Profile</h5>
+                                  <span class="text-muted">Reliance Industries Limited is an Indian multinational
+                                      conglomerate company headquartered in Mumbai, India. Reliance owns
+                                      businesses across India engaged in energy, petrochemicals, textiles, natural
+                                      resources, retail, and telecommunications.
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-8">
+                          <h3>Financial Indicators</h3><br>
+                          <table class="table table-borderless">
+                              <thread>
+                                  <tr>
+                                      <th scope="col">Pre. Close</th>
+                                      <th scope="col">open</th>
+                                      <th scope="col">Bid</th>
+                                      <th scope="col">Ask</th>
+                                  </tr>
+                              </thread>
+                              <tbody>
+                                  <tr>
+                                      <th scope="row">25</th>
+                                      <th scope="row">52</th>
+                                      <th scope="row">23</th>
+                                      <th scope="row">23</th>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          <hr>
+                          <table class="table table-borderless">
+                              <thread>
+                                  <tr>
+                                      <th scope="col">Day's Range</th>
+                                      <th scope="col">52 Week Range</th>
+                                      <th scope="col">volume</th>
+                                      <th scope="col">Avg.Volume</th>
+                                  </tr>
+                              </thread>
+                              <tbody>
+                                  <tr>
+                                      <th scope="row">21</th>
+                                      <th scope="row">52</th>
+                                      <th scope="row">23</th>
+                                      <th scope="row">23</th>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          <hr>
+                          <table class="table table-borderless">
+                              <thread>
+                                  <tr>
+                                      <th scope="col">Market Cap</th>
+                                      <th scope="col">Beta(5Y Monthly)</th>
+                                      <th scope="col">PE Ratio</th>
+                                      <th scope="col">EPS</th>
+                                  </tr>
+                              </thread>
+                              <tbody>
+                                  <tr>
+                                      <th scope="row">21</th>
+                                      <th scope="row">52</th>
+                                      <th scope="row">23</th>
+                                      <th scope="row">23</th>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          <hr>
+                          <table class="table table-borderless">
+                              <thread>
+                                  <tr>
+                                      <th scope="col">Earnings Date</th>
+                                      <th scope="col">Forward Dividend & Yield</th>
+                                      <th scope="col">Ex-Dividend Date</th>
+                                      <th scope="col">1y Target Est</th>
+                                  </tr>
+                              </thread>
+                              <tbody>
+                                  <tr>
+                                      <th scope="row">21</th>
+                                      <th scope="row">52</th>
+                                      <th scope="row">23</th>
+                                      <th scope="row">23</th>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          <br>
+                          <h2>Tracking Market Capital(in Cr.)</h2>
+                          <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="400" height="400" style="display: block; height: 285px; width: 675px;"></canvas>
+                          <h2>Return on Investment</h2>
+                          <h6>
+                            <span class="text-muted">Return on Investment (ROI) is a performance measure used to
+                                  evaluate the efficiency or profitability of an investment or compare the
+                                  efficiency of a number of different investments. ... To calculate ROI, the
+                                  benefit (or return) of an investment is divided by the cost of the
+                                  investment.
+                            </span>
+                          </h6>
+                          <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="400" height="400" style="display: block; height: 285px; width: 675px;"></canvas>
+                      </div>
                     </div>
+                  </div>
                   <div id="Conversations" class="tabcontent">
-                    <p>conv</p>
 
+                    <br>
+                    <h3><b><img src="Comments.png" style="height: 30px;" /> 26,123 reactions</b></h3><br>
+                    <div class="mb-3">
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Type your message..."></textarea>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <button class="btn btn-primary" type="button">post comment</button>
+                    </div>
+                    <br>
+                    <div class="btn-group">
+                      <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Top Reactions
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Top Reactions</a></li>
+                        <li><a class="dropdown-item" href="#">New Reactions</a></li>
+                        <li><a class="dropdown-item" href="#">Recent Discusions</a></li>
+                        <li><a class="dropdown-item" href="#">Most Discussed</a></li>
+                        <li><a class="dropdown-item" href="#">Old Reactions</a></li>
+                      </ul>
+                    </div>
+              
+                    <div class="container-fluid"><br>
+                      <div class="row">
+                        <div class="col-1">
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Eo_circle_blue_letter-n.svg/2048px-Eo_circle_blue_letter-n.svg.png" class="img-fluid" id="profile" alt="profilepic" style="border-radius:100%;">
+                        </div>
+                        <div class="col-11">
+                          <h4 style="padding:0;"><b>Name</b></h4>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo odio sed condimentum convallis. Aliquam sed nunc turpis. Nullam commodo non sem in vulputate. Duis pulvinar interdum metus a egestas. Suspendisse in leo felis. Integer sit amet urna sit amet urna condimentum lacinia. Pellentesque ultrices elit lacus, nec sodales quam dapibus sit amet.</p>
+                          <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-sm btn-outline-primary" style="border-right: none;"><img src="rise.png" height="13px" /></button>
+                            <button type="button" class="btn btn-sm btn-outline-primary" style="border-left: none;" disabled>Bullish</button>
+                          </div>
+                          <ul class="nav">
+                            <li class="nav-item">
+                              <a class="nav-link text-muted" href="#" style="padding-left: 0;">⮪ Reply</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link text-muted" href="#">⮮ Replies</a>
+                            </li>
+                            <li class="nav-item">
+                              <button class="btn" data-bs-toggle="tooltip" title="Like" onclick="liked()">
+                                <input type="radio" class="btn-check" name="like-dislike" id="like">
+                                <label class="btn btn-outline-light" id="likeLabel" for="like" style="border: none; color: grey;">⮝</label>
+                              </button>
+                              <button class="btn" data-bs-toggle="tooltip" title="Dislike" onclick="disliked()">
+                                <input type="radio" class="btn-check" name="like-dislike" id="dislike">
+                                <label class="btn btn-outline-light" id="dislikeLabel" for="dislike" style="border: none; color: grey;">⮟</label>
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
 
-                </div>
                   </div>
                   <div id="Statistics" class="tabcontent">
-                    <h3>o</h3>
-                    <p>Lorem ipsum</p>
+                    <div class="container-fluid"><br>
+                      <div class="row">
+                        <div class="col">
+                          <div>
+                            <h5 class="text-primary"><b>Valuation Measures</b></h5>
+                            <table class="table">
+                              <tr>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                            </table>
+                          </div>
+                          <div>
+                            <h5 class="text-primary"><b>Financial Highlights</b></h5>
+                            <table class="table">
+                              <thead>
+                                <b> Fiscal Year</b>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Mark</td>
+                                  <td>Otto</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <br>
+                            <table class="table">
+                              <thead>
+                                <b> Profitability</b>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Mark</td>
+                                  <td>Otto</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <br>
+                            <table class="table">
+                              <thead>
+                                <b> Management Effectiveness</b>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Mark</td>
+                                  <td>Otto</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <br>
+                            <table class="table">
+                              <thead>
+                                <b> Income Statement</b>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Mark</td>
+                                  <td>Otto</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <br>
+                            <table class="table">
+                              <thead>
+                                <b> Balance Sheet</b>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Mark</td>
+                                  <td>Otto</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <br>
+                            <table class="table">
+                              <thead>
+                                <b> Cash Flow Statement</b>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Mark</td>
+                                  <td>Otto</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <br>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <h5 class="text-primary"><b>Trading Information</b></h5>
+                          <table class="table">
+                            <thead>
+                              <b> Stock Price History</b>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <br>
+                          <table class="table">
+                            <thead>
+                              <b> Share Statistics</b>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <br>
+                          <table class="table">
+                            <thead>
+                              <b> Dividends & Splits</b>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <br>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div id="Financials" class="tabcontent">
-                    <div class="card card-body">
-                                <h2>Track Assets & Liabilities</h2>
-                                <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="600" height="400"
-                                    style="display: block; height: 285px; width: 675px;"></canvas>
-                                <hr>
-                                <h2>Balance Sheet</h2><br>
-                                <table class="table">
-                                    <thread>
-                                        <tr>
-                                            <th scope="col">Particulars</th>
-                                            <th scope="col">FY2014</th>
-                                            <th scope="col">FY2015</th>
-                                            <th scope="col">FY2016</th>
-                                            <th scope="col">FY2017</th>
-                                            <th scope="col">FY2018</th>
-                                            <th scope="col">FY2019</th>
-                                            <th scope="col">FY2020</th>
-                                        </tr>
-                                    </thread>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">id</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Symbol</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
+                    <div class="card card-body" style="border: none;">
+                      <h2>Track Assets & Liabilities</h2>
+                      <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="600" height="400"
+                          style="display: block; height: 285px; width: 675px;"></canvas>
+                      <hr>
+                      <h2>Balance Sheet</h2><br>
+                      <table class="table">
+                          <thread>
+                              <tr>
+                                  <th scope="col">Particulars</th>
+                                  <th scope="col">FY2014</th>
+                                  <th scope="col">FY2015</th>
+                                  <th scope="col">FY2016</th>
+                                  <th scope="col">FY2017</th>
+                                  <th scope="col">FY2018</th>
+                                  <th scope="col">FY2019</th>
+                                  <th scope="col">FY2020</th>
+                              </tr>
+                          </thread>
+                          <tbody>
+                              <tr>
+                                  <th scope="row">id</th>
+                                  <td>Mark</td>
+                                  <td>Otto</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Symbol</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
 
-                                        <tr class="table-active">
-                                            <th scope="row">financial year</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Cash_and_Short_Term_Investments</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Total_Receivables</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr class="table-active">
-                                            <th scope="row">Total_Inventory</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr class="table-active">
-                                            <th scope="row">Other_Current_Assets</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Current_Assets</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Loans_and_Advances</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Net_PropertyPlantEquipment</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Goodwill_and_Intangibles</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Long_Term_Investments</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Deferred_Tax_Assets_Net</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Other_Assets</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Non_Current_Assets</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Total_Assets</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Accounts_Payable</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Total_Deposits</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Other_Current_Liabilities</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Current_Liabilities</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Total_Long_Term_Debt</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Deferred_Tax_Liabilities_Net</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Other_Liabilities</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Non_Current_Liabilities</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Total_Liabilities</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Common_Stock</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Additional_Paid_in_Capital</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Reserves_and_Surplus</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Minority_Interest</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Other_Equity</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Total_Equity</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr> <tr>
-                                            <th scope="row">Total_Liabilities_and_Shareholders_Equity</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Total_Common_Shares_Outstanding</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <hr>
-                                <h2>Income</h2>
-                                <table class="table">
-                                    <thread>
-                                        <tr>
-                                            <th scope="col">Particulars</th>
-                                            <th scope="col">FY2014</th>
-                                            <th scope="col">FY2015</th>
-                                            <th scope="col">FY2016</th>
-                                            <th scope="col">FY2017</th>
-                                            <th scope="col">FY2018</th>
-                                            <th scope="col">FY2019</th>
-                                            <th scope="col">FY2020</th>
-                                        </tr>
-                                    </thread>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Total_Revenue</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Cost of Revenue</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
+                              <tr class="table-active">
+                                  <th scope="row">financial year</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Cash_and_Short_Term_Investments</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Total_Receivables</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr class="table-active">
+                                  <th scope="row">Total_Inventory</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr class="table-active">
+                                  <th scope="row">Other_Current_Assets</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Current_Assets</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Loans_and_Advances</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Net_PropertyPlantEquipment</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Goodwill_and_Intangibles</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Long_Term_Investments</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Deferred_Tax_Assets_Net</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Other_Assets</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Non_Current_Assets</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Total_Assets</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Accounts_Payable</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Total_Deposits</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Other_Current_Liabilities</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Current_Liabilities</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Total_Long_Term_Debt</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Deferred_Tax_Liabilities_Net</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Other_Liabilities</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Non_Current_Liabilities</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Total_Liabilities</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Common_Stock</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Additional_Paid_in_Capital</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Reserves_and_Surplus</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Minority_Interest</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Other_Equity</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Total_Equity</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr> <tr>
+                                  <th scope="row">Total_Liabilities_and_Shareholders_Equity</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Total_Common_Shares_Outstanding</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <hr>
+                      <h2>Income</h2>
+                      <table class="table">
+                          <thread>
+                              <tr>
+                                  <th scope="col">Particulars</th>
+                                  <th scope="col">FY2014</th>
+                                  <th scope="col">FY2015</th>
+                                  <th scope="col">FY2016</th>
+                                  <th scope="col">FY2017</th>
+                                  <th scope="col">FY2018</th>
+                                  <th scope="col">FY2019</th>
+                                  <th scope="col">FY2020</th>
+                              </tr>
+                          </thread>
+                          <tbody>
+                              <tr>
+                                  <th scope="row">Total_Revenue</th>
+                                  <td>Mark</td>
+                                  <td>Otto</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Cost of Revenue</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
 
-                                        <tr class="table-active">
-                                            <th scope="row">Gross Profit</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Operating Income</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Operating Income</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr class="table-active">
-                                            <th scope="row">Net Nom Operating Interest Income</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr class="table-active">
-                                            <th scope="row">Pretax Income</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Tax Provision</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Net Income Common Stockholdings</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Diluted NI Available to Common Stocks</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Basic Eps</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Diluted Eps</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Basic Average Shares</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Diluted Average Shares</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Rent Expense Supplemental</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Total Expenses</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Net Income from Continuing & Discontinued Operation	</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Normalized Income</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Interest Income</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Interest Expense</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Net Interest Income</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">EBIT</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">EBITDA</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Reconciled Cost of Revenue</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Net Income from Continuing Operation Net Minority Interest	</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Total Unusual Items Excluding Goodwill	</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Total Unusual Items</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Normalized EBITDA</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Tax Rate for Calcs</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr><tr>
-                                            <th scope="row">Tax Effect of Unusual Items</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        </tbody>
-                                        </table>
-                                <hr>
-                                <h2>Cash Flow</h2>
-                                <h6><span class="text-muted">Cash flow is the net amount of cash and cash-equivalents
-                                        being
-                                        transferred into and out of a business. At the most fundamental level, a
-                                        company's
-                                        ability to create value for shareholders is determined by its ability to
-                                        generate
-                                        positive cash flows, or more specifically, maximize long-term free cash flow
-                                        (FCF).</span></h6>
-                                <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="600" height="400"
-                                    style="display: block; height: 285px; width: 675px;"></canvas>
-                                    <table class="table">
-                                        <thread>
-                                            <tr>
-                                                <th scope="col">Particulars</th>
-                                                <th scope="col">FY2014</th>
-                                                <th scope="col">FY2015</th>
-                                                <th scope="col">FY2016</th>
-                                                <th scope="col">FY2017</th>
-                                                <th scope="col">FY2018</th>
-                                                <th scope="col">FY2019</th>
-                                                <th scope="col">FY2020</th>
-                                            </tr>
-                                        </thread>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Cash_from_Operating_Activities</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Cash_from_investing_Activities</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                            </tr>
+                              <tr class="table-active">
+                                  <th scope="row">Gross Profit</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Operating Income</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Operating Income</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr class="table-active">
+                                  <th scope="row">Net Nom Operating Interest Income</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              <tr class="table-active">
+                                  <th scope="row">Pretax Income</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Tax Provision</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Net Income Common Stockholdings</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Diluted NI Available to Common Stocks</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Basic Eps</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Diluted Eps</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Basic Average Shares</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Diluted Average Shares</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Rent Expense Supplemental</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Total Expenses</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Net Income from Continuing & Discontinued Operation	</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Normalized Income</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Interest Income</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Interest Expense</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Net Interest Income</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">EBIT</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">EBITDA</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Reconciled Cost of Revenue</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Net Income from Continuing Operation Net Minority Interest	</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Total Unusual Items Excluding Goodwill	</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Total Unusual Items</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Normalized EBITDA</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Tax Rate for Calcs</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr><tr>
+                                  <th scope="row">Tax Effect of Unusual Items</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                                  <td>@mdo</td>
+                              </tr>
+                              </tbody>
+                      </table>
+                      <hr>
+                      <h2>Cash Flow</h2>
+                      <h6><span class="text-muted">Cash flow is the net amount of cash and cash-equivalents
+                              being
+                              transferred into and out of a business. At the most fundamental level, a
+                              company's
+                              ability to create value for shareholders is determined by its ability to
+                              generate
+                              positive cash flows, or more specifically, maximize long-term free cash flow
+                              (FCF).</span></h6>
+                      <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="600" height="400"
+                          style="display: block; height: 285px; width: 675px;"></canvas>
+                          <table class="table">
+                              <thread>
+                                  <tr>
+                                      <th scope="col">Particulars</th>
+                                      <th scope="col">FY2014</th>
+                                      <th scope="col">FY2015</th>
+                                      <th scope="col">FY2016</th>
+                                      <th scope="col">FY2017</th>
+                                      <th scope="col">FY2018</th>
+                                      <th scope="col">FY2019</th>
+                                      <th scope="col">FY2020</th>
+                                  </tr>
+                              </thread>
+                              <tbody>
+                                  <tr>
+                                      <th scope="row">Cash_from_Operating_Activities</th>
+                                      <td>Mark</td>
+                                      <td>Otto</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                      <th scope="row">Cash_from_investing_Activities</th>
+                                      <td>Jacob</td>
+                                      <td>Thornton</td>
+                                      <td>@fat</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                  </tr>
 
-                                            <tr class="table-active">
-                                                <th scope="row">Cash_from_financing_Activities</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">End Cash Position</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Changes_in_Working_Capital</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Effect of Exchange Rate</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Beginning Cash Position</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr class="table-active">
-                                                <th scope="row">Capital_Expenditures</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Issuance of Capital Stock</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Repurchase Of Capital Stock</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr class="table-active">
-                                                <th scope="row">Free_Cash_Flow</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            </tbody>
-                                            </table>
-
-                            </div>
+                                  <tr class="table-active">
+                                      <th scope="row">Cash_from_financing_Activities</th>
+                                      <td>Jacob</td>
+                                      <td>Thornton</td>
+                                      <td>@fat</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                      <th scope="row">End Cash Position</th>
+                                      <td>Jacob</td>
+                                      <td>Thornton</td>
+                                      <td>@fat</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                      <th scope="row">Changes_in_Working_Capital</th>
+                                      <td>Jacob</td>
+                                      <td>Thornton</td>
+                                      <td>@fat</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                      <th scope="row">Effect of Exchange Rate</th>
+                                      <td>Jacob</td>
+                                      <td>Thornton</td>
+                                      <td>@fat</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                      <th scope="row">Beginning Cash Position</th>
+                                      <td>Jacob</td>
+                                      <td>Thornton</td>
+                                      <td>@fat</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                  </tr>
+                                  <tr class="table-active">
+                                      <th scope="row">Capital_Expenditures</th>
+                                      <td>Jacob</td>
+                                      <td>Thornton</td>
+                                      <td>@fat</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                      <th scope="row">Issuance of Capital Stock</th>
+                                      <td>Jacob</td>
+                                      <td>Thornton</td>
+                                      <td>@fat</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                      <th scope="row">Repurchase Of Capital Stock</th>
+                                      <td>Jacob</td>
+                                      <td>Thornton</td>
+                                      <td>@fat</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                  </tr>
+                                  <tr class="table-active">
+                                      <th scope="row">Free_Cash_Flow</th>
+                                      <td>Jacob</td>
+                                      <td>Thornton</td>
+                                      <td>@fat</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                      <td>@mdo</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                    </div>
                   </div>
                   <div id="Secretorial" class="tabcontent">
-                    <div class="card card-body">
+                    <div class="card card-body" style="border: none;">
                                 <div class="row g-0 bg-light position-relative">
                                     <div class="col-md-6 mb-md-0 p-md-4">
                                         <img src="IMAGES/sectorial compare.jpg" class="w-100" alt="...">
@@ -1293,8 +1493,7 @@
                                     <div class="row g-2">
                                         <div class="col-4">
                                             <label for="exampleDataList" class="form-label">companies to compare</label>
-                                            <input class="form-control" list="datalistOptions" id="exampleDataList"
-                                                placeholder="Type to search...">
+                                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
                                             <datalist id="datalistOptions">
                                                 <option value="San Francisco">
                                                 <option value="New York">
@@ -1336,45 +1535,123 @@
                                     </div>
                                 </div>
                                 <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="600" height="400"
-                                    style="display: block; height: 285px; width: 675px;"></canvas>
-                            </div>
-                        </div>
-
+                                    style="display: block; height: 285px; width: 675px;">
+                                </canvas>
+                    </div>
                   </div>
                   <div id="Holdings" class="tabcontent">
-                   <div class="card card-body">
-                                <div class="row g-0 bg-light position-relative">
-                                    <div class="col-md-6 mb-md-0 p-md-4">
-                                        <img src="IMAGES/429-shareholding.jpg" class="w-100" alt="...">
-                                    </div>
-                                    <div class="col-md-6 p-4 ps-md-0">
-                                        <h5 class="mt-0">Shareholders</h5>
-                                        <p>Apart from retail investors, a company’s shares are held by promoters,
-                                            foreign & domestic institutions (large investors) and mutual funds.
-                                            Promoters are the ship captains and control the company’s direction. Along
-                                            with institutional and mutual fund holdings, a change in their holdings can
-                                            indicate performance outlook for the stock
-                                        </p>
-                                    </div>
-                                    <HR>
-                                        <H2>Shareholding Figures</H2>
-                                        <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="600" height="400"
-                                style="display: block; height: 285px; width: 675px;"></canvas>
-                                </div>
-
-
-
-                            </div>
+                    <div class="card card-body" style="border: none;">
+                      <div class="row g-0 bg-light position-relative">
+                          <div class="col-md-6 mb-md-0 p-md-4">
+                              <img src="IMAGES/429-shareholding.jpg" class="w-100" alt="...">
+                          </div>
+                          <div class="col-md-6 p-4 ps-md-0">
+                              <h5 class="mt-0">Shareholders</h5>
+                              <p>Apart from retail investors, a company’s shares are held by promoters,
+                                  foreign & domestic institutions (large investors) and mutual funds.
+                                  Promoters are the ship captains and control the company’s direction. Along
+                                  with institutional and mutual fund holdings, a change in their holdings can
+                                  indicate performance outlook for the stock
+                              </p>
+                          </div>
+                          <HR>
+                              <H2>Shareholding Figures</H2>
+                              <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="600" height="400" style="display: block; height: 285px; width: 675px;"></canvas>
+                      </div>
+                    </div>
                   </div>
                   <div id="News" class="tabcontent">
-                    <h3>news</h3>
-                    <p>Lorem ipsum</p>
+                    <div class="container-fluid"><br>
+                      <div class="row">
+                        <div class="col-lg-3">
+                          <a href=""><img src="https://img.etimg.com/thumb/msid-80057283,width-640,resizemode-4,imgsize-1835414/stocks-to-buy-in-2021.jpg" alt="image about news" style="width: 100%; height:150px;" /></a>
+                        </div>
+                        <div class="col-lg-9">
+                          <p class="text-muted" style="margin:0">NewsPaper Name</p>
+                          <a href="" style="text-decoration: none;"><h4 style="padding:0;"><b>News Headline</b></h4></a>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo odio sed condimentum convallis. Aliquam sed nunc turpis. Nullam commodo non sem in vulputate. Duis pulvinar interdum metus a egestas. Suspendisse in leo felis. Integer sit amet urna sit amet urna condimentum lacinia...</p>
+                        </div>
+                      </div>
+                      <hr>
+                    </div>
                   </div>
-                  <div id="Profile" class="tabcontent">
-                    <h3>Profile</h3>
-                    <p>Name of the company</p>
+                  <div id="Profile" class="tabcontent"><br>
+                    <div class="container-fluid">
+                      <div class="row">
+                        <h4 class="text-primary"><b>Name of the company</b></h4>
+                        <div class="col">
+                          <p>Address:</p>
+                          <p>Number:</p>
+                          <p>Website:<a href=""></a></p>
+                        </div>
+                        <div class="col">
+                          <p>Sector(s):</p>
+                          <p>Industry:</p>
+                          <p>Full Time Employees:</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <h4 class="text-primary"><b>Key Executives</b></h4>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">Name</th>
+                              <th scope="col">Title</th>
+                              <th scope="col">Pay</th>
+                              <th scope="col">Exercised</th>
+                              <th scope="col">Year Born</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td>@mdo</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="row">
+                        <h4 class="text-primary"><b>Map Location</b></h4>
+                      </div>
+                      <div class="row">
+                        <h4 class="text-primary"><b>Description</b></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo odio sed condimentum convallis. Aliquam sed nunc turpis. Nullam commodo non sem in vulputate. Duis pulvinar interdum metus a egestas. Suspendisse in leo felis. Integer sit amet urna sit amet urna condimentum lacinia. Pellentesque ultrices elit lacus, nec sodales quam dapibus sit amet.</p>
+                      </div>
+                      <div class="row">
+                        <h4 class="text-primary"><b>Corporate Governance</b></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo odio sed condimentum convallis. Aliquam sed nunc turpis. Nullam commodo non sem in vulputate. Duis pulvinar interdum metus a egestas. Suspendisse in leo felis. Integer sit amet urna sit amet urna condimentum lacinia. Pellentesque ultrices elit lacus, nec sodales quam dapibus sit amet.</p>
+                      </div>
+                    </div>
                   </div>
             </div>
+            <div class="col-lg-3" style="padding: 0;">
+              <h4><b>People Also Watch</b></h4>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Last Price</th>
+                    <th scope="col">Change</th>
+                    <th scope="col">%Change</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>
+                      <a href="">ABC</a>
+                      <br>
+                      <p class="text-muted">Inc.</p>
+                    </th>
+                    <td>23</td>
+                    <td>+0.78</td>
+                    <td>+0.9%</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
         </div>
     </div>
 
@@ -1392,11 +1669,24 @@
           document.getElementById(tabsName).style.display = "block";
           evt.currentTarget.className += " active";
         }
-
+    
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
+
+        //functions to change color
+        function liked(){
+          document.getElementById("likeLabel").style.color = "blue";
+          document.getElementById("likeLabel").style.backgroundColor = "white";
+          document.getElementById("dislikeLabel").style.color = "grey"
+        }
+        function disliked(){
+          document.getElementById("likeLabel").style.color = "grey";
+          document.getElementById("dislikeLabel").style.backgroundColor = "white";
+          document.getElementById("dislikeLabel").style.color = "blue"
+        }
     </script>
 
+    <br><br>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
